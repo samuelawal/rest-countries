@@ -4,18 +4,23 @@ import AppReducer, { APP_INITIAL_STATE } from "./store/reducer";
 import {
   RESET_LOADING,
   SET_COUNTRIES,
+  SET_FILTER,
   SET_LOADING,
 } from "./constants/constants";
 
 export default function DataWrapper({ render }) {
-  const { state } = useLocalState();
+  const { state, onFilterChange } = useLocalState();
   const contextData = {
     ...state,
+    onFilterChange
   };
  return render(contextData);
 }
 function useLocalState() {
   const [state, dispatch] = useReducer(AppReducer, APP_INITIAL_STATE);
+  const onFilterChange = (event) => {
+        dispatch({type: SET_FILTER, filter: event.target.value})
+  }
   useEffect(
     useCallback(
         () => {
@@ -37,5 +42,6 @@ function useLocalState() {
     )
   return {
     state,
+    onFilterChange
   };
 }

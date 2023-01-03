@@ -96,5 +96,7 @@ ul, li {
 .inner_listed_style, label{
     margin: 10px;
     margin-right: 10px;
-
+}
+.inner_sortBy.sortOpen{
+  display: none;
 }

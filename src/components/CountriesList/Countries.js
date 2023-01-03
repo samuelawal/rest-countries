@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import AppContext from "../../context/context";
 
-const Countries = () => {
-  const { countries, loading, loadingText } = useContext(AppContext);
-  console.log(countries);
+const Countries = ({countries}) => {
+  const { loading, loadingText } = useContext(AppContext);
   return (
     <div className="container">
       {loading ? (
