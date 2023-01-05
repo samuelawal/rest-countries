@@ -4,6 +4,7 @@ import {
   RESET_LOADING,
   SET_FILTER,
   SET_SORT_BY,
+  SET_SORT_ORDER,
 } from "../constants/constants";
 
 export const APP_INITIAL_STATE = {
@@ -13,6 +14,10 @@ export const APP_INITIAL_STATE = {
   sortBy: {
     key: null,
     type: null,
+  },
+  sortOrder: {
+    name: '',
+    population: '',
   },
   filter: "all",
 };
@@ -27,6 +32,8 @@ const AppReducer = (state, action) => {
       return { ...state, countries: action.countries };
     case SET_SORT_BY:
       return { ...state, sortBy: action.value };
+    case SET_SORT_ORDER: 
+      return {...state, sortOrder: {...action.sortOrder, [action.key]: [action.value]}}
     case SET_FILTER:
       return { ...state, filter: action.filter };
   }

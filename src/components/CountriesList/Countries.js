@@ -18,6 +18,7 @@ const Countries = ({countries}) => {
                 height="130px"
               ></img>
               <h2>{country.name.common}</h2>
+              <p>Population: {country.population}</p>
             </article>
           ))}
         </div>

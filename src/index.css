@@ -98,5 +98,5 @@ ul, li {
     margin-right: 10px;
 }
 .inner_sortBy.sortOpen{
-  display: none;
+  /* display: none; */
 }
